@@ -8,7 +8,7 @@ import Moi from '../../public/image/moi.jpg';
 
 <Layout title="A bout Me">
   <PageTransition>
-    <div class="min-h-screen flex items-center justify-center bg-cover bg-center bg-fixed relative overflow-hidden">
+    <div class="min-h-screen flex items-center justify-center bg-accent bg-center bg-fixed relative overflow-hidden">
       <!-- lumière douce sur le fond -->
       <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#2e241b]/60 pointer-events-none"></div>
       <!-- effet de grain -->
@@ -33,7 +33,7 @@ import Moi from '../../public/image/moi.jpg';
                 <div class="mx-auto w-20 h-0.5 bg-gradient-to-r from-transparent via-warning to-transparent opacity-70 mb-8"></div>
 
                 <div class="flex justify-center mb-6">
-                  <a href="/cv.pdf" class="inline-flex items-center gap-2 bg-secondary text-white px-4 py-2 rounded shadow-md">
+                  <a href="../public/ahuir-noelie-CV.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-secondary text-white px-4 py-2 rounded shadow-md">
                     Voir mon CV
                   </a>
                 </div>
@@ -90,27 +90,19 @@ import Moi from '../../public/image/moi.jpg';
 
                 <!-- pagination centered bottom -->
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center">
-                  <p>IV</p>
-                  <a href="">Mention Légales</a>
+                  <p>- IV -</p>
+                  <a href="/mentions-legales"> <p>Mention Légales</p> </a>
                 </div>
 
                 <!-- bouton suivant bottom-right -->
-                <a href="/projet"
+                <a href="/projet-tavue"
                     class="absolute bottom-6 right-6 inline-flex items-center gap-3 bg-secondary text-white px-4 py-2 rounded-md font-cinzel text-sm tracking-widest shadow-md transition-transform duration-300 hover:bg-accent hover:-translate-y-1 pointer-events-auto">
                     PAGE SUIVANTE <span class="text-lg">→</span>
                 </a>
-
-                <!-- menu bookmark (reste collé au bord droit) -->
-                 <div class="absolute top-[45%] right-0 -translate-y-1/2 z-40 pointer-events-auto">
-                    <div class="bg-base-200/95 rounded-l-lg shadow-lg p-2 border-l border-accent/30">
-                        <BookmarkNav currentPage="about" className="translate-x-0" />
-                    </div>
-                </div>
             </section>
-
-          
         </div>
       </div>
     </div>
+    <BookmarkNav currentPage="about" className="translate-x-0" />
   </PageTransition>
 </Layout>

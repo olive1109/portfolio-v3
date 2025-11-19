@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageTransition from '../components/PageTransition.astro';
+import BookmarkNav from '../components/BookmarkNav.astro';
+---
+
+<Layout title="Mentions légales">
+	<PageTransition>
+		<div class="min-h-screen flex items-center justify-center bg-accent bg-center bg-fixed relative overflow-hidden">
+			<!-- légère texture et grain pour rester dans le thème -->
+			<div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#2e241b]/60 pointer-events-none"></div>
+			<div class="grain absolute inset-0 pointer-events-none opacity-30 mix-blend-overlay"></div>
+
+			<div class="relative w-[95vw] max-w-[1100px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-[3px] border-secondary/50 bg-primary/95 p-12">
+				<div class="prose max-w-none text-base-content">
+					<h1 class="font-cinzel text-4xl tracking-widest mb-4">Mentions légales</h1>
+
+					<h2>Éditeur du site</h2>
+					<p>
+						<strong>Nom :</strong> Noëlie Ahuir<br />
+						<strong>Adresse :</strong> 25200 Montbéliard France<br />
+						<strong>Contact :</strong> <a href="mailto:noelie.ahuir@gmail.com">noelie.ahuir@gmail.com</a><br />
+						<strong>Directeur de la publication :</strong> Noëlie Ahuir
+					</p>
+
+					<h2>Hébergement</h2>
+					<p>
+						<strong>Hébergeur :</strong> Netlify<br />
+						<strong>Adresse :</strong> 610 22nd Ave, San Francisco, CA 94121, USA<br />
+						<strong>Contact :</strong> support@netlify.com
+					</p>
+					<h2>Cookies</h2>
+					<p>
+						Ce site utilise des cookies pour améliorer l'expérience utilisateur et analyser le trafic. Vous pouvez gérer vos préférences via le bandeau cookies. Pour en savoir plus, consultez la page <a href="/cookies">Gestion des cookies</a>.
+					</p>
+
+					<h2>Propriété intellectuelle</h2>
+					<p>
+						L'ensemble des contenus (textes, images, photographies, illustrations, logos, vidéos) présents sur ce site sont la propriété exclusive de Noëlie Ahuir ou de leurs auteurs respectifs. Toute reproduction, représentation, modification, adaptation ou exploitation totale ou partielle des éléments du site est interdite sans l'autorisation écrite préalable.
+					</p>
+
+					<h2>Crédits</h2>
+					<p>
+						Photos : Noëlie Ahuir / banques d'images selon mentions individuelles.<br />
+						Développement & design : Noëlie Ahuir.
+					</p>
+
+					<h2>Limitation de responsabilité</h2>
+					<p>
+						Les informations publiées sur ce site le sont à titre indicatif. Noëlie Ahuir s'efforce d'assurer l'exactitude des contenus mais ne peut garantir l'exhaustivité, la mise à jour ou l'absence d'erreurs. L'utilisation des informations se fait sous la responsabilité de l'utilisateur.
+					</p>
+
+					<h2>Loi applicable</h2>
+					<p>
+						Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.
+					</p>
+
+					<p class="text-sm text-neutral/70 mt-6">Mise à jour : 19/11/2025        </p>
+				</div>
+			</div>
+            
+            <BookmarkNav currentPage="about" className="translate-x-0 mr-80" />
+		</div>
+	</PageTransition>
+</Layout>

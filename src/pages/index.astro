@@ -8,7 +8,7 @@ import Moi from '../../public/image/moi.jpg';
 
 <Layout title="Prologue">
   <PageTransition>
-    <div class="min-h-screen flex items-center justify-center bg-cover bg-center bg-fixed relative overflow-hidden">
+    <div class="min-h-screen flex items-center justify-center bg-accent bg-center bg-fixed relative overflow-hidden">
       <!-- lumière douce sur le fond -->
       <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#2e241b]/60 pointer-events-none"></div>
       <!-- effet de grain -->
@@ -69,15 +69,9 @@ import Moi from '../../public/image/moi.jpg';
             <!-- pagination -->
             <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center">
               <p>— II —</p>
-              <a href="">Mention Légales</a>
+              <a href="/mentions-legales">Mention Légales</a>
             </div>
 
-            <!-- menu bookmark (remonté et ombré) -->
-            <div class="absolute top-[45%] right-0 -translate-y-1/2 z-40 pointer-events-auto">
-              <div class="bg-base-200/95 rounded-l-lg shadow-lg p-2 border-l border-accent/30">
-                <BookmarkNav currentPage="" className="translate-x-0" />
-              </div>
-            </div>
 
             <!-- bouton suivant -->
             <a href="/about"
@@ -88,5 +82,6 @@ import Moi from '../../public/image/moi.jpg';
         </div>
       </div>
     </div>
+    <BookmarkNav currentPage="" className="translate-x-0" />
   </PageTransition>
 </Layout>
