@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageTransition from '../components/PageTransition.astro';
+import BookmarkNav from '../components/BookmarkNav.astro';
+import { Image } from 'astro:assets';
+import Moi from '../../public/image/moi.jpg';
+---
+
+<Layout title="A bout Me">
+  <PageTransition>
+    <div class="min-h-screen flex items-center justify-center bg-cover bg-center bg-fixed relative overflow-hidden">
+      <!-- lumière douce sur le fond -->
+      <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#2e241b]/60 pointer-events-none"></div>
+      <!-- effet de grain -->
+      <div class="grain absolute inset-0 pointer-events-none opacity-30 mix-blend-overlay"></div>
+
+      <!-- Livre -->
+      <div class="relative w-[95vw] h-[100vh] max-w-[1800px] mx-auto rounded-3xl overflow-hidden shadow-2xl border-[4px] border-[#3B2C23]/50">
+
+        <!-- pages d’arrière-plan alignées -->
+        <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none">
+          <div class="absolute h-[94%] w-[98%] bg-base-200/90 rounded-2xl shadow-2xl -translate-x-4"></div>
+          <div class="absolute h-[94%] w-[98%] bg-base-200/95 rounded-2xl shadow-xl translate-x-4"></div>
+        </div>
+
+        <!-- livre principal -->
+        <div class="relative z-10 grid grid-cols-2 rounded-2xl shadow-2xl items-stretch h-full overflow-hidden border-[3px] border-secondary/50 bg-primary">
+            <!-- Page gauche -->
+            <section class="relative bg-primary/95 text-primary-content rounded-l-2xl p-12 shadow-inner h-full overflow-auto bg-[url('/image/paper-texture.webp')] bg-cover bg-blend-multiply">
+              <div class="max-w-[520px] mx-auto">
+                <p class="text-xs text-warning/70 tracking-widest text-center mb-4">CHAPITRE II</p>
+                <h1 class="font-cinzel text-5xl tracking-widest text-center mb-6">À propos de moi</h1>
+                <div class="mx-auto w-20 h-0.5 bg-gradient-to-r from-transparent via-warning to-transparent opacity-70 mb-8"></div>
+
+                <div class="flex justify-center mb-6">
+                  <a href="/cv.pdf" class="inline-flex items-center gap-2 bg-secondary text-white px-4 py-2 rounded shadow-md">
+                    Voir mon CV
+                  </a>
+                </div>
+
+                <!-- image encadrée centrée -->
+                <div class="flex justify-center mb-6">
+                  <div class="relative bg-white/95 rounded-lg shadow-2xl p-4" style="border:8px solid rgba(166,103,50,0.95);">
+                    <Image src={Moi} alt="Photo de Noëlie" class="block w-[360px] h-[480px] object-cover rounded-md shadow-md" />
+                  </div>
+                </div>
+
+                <p class="text-center text-xs text-neutral/70 mb-8">Noëlie Ahuir</p>
+              </div>
+
+              <!-- pagination (inchangée, centrée en bas) -->
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center">
+                <p>— III —</p>
+                <p>@ 2025 Noëlie Ahuir</p>
+              </div>
+
+              <a href="/"
+                   class="absolute bottom-6 left-6 inline-flex items-center gap-3 bg-secondary text-white px-4 py-2 rounded-md font-cinzel text-sm tracking-widest shadow-md transition-transform duration-300 hover:bg-accent hover:-translate-y-1 pointer-events-auto">
+                  <span class="text-lg">←</span> PAGE précédente
+              </a>
+            </section>  
+            <!-- Page droite -->
+            <section class="relative bg-primary/95 text-primary-content rounded-r-2xl p-12 shadow-inner h-full overflow-auto bg-[url('/image/paper-texture.webp')] bg-cover bg-blend-multiply">
+                <div class="max-w-[640px] mx-auto">
+                    <article class="prose prose-lg max-w-none text-base-content text-justify">
+                    <!-- drop cap + first paragraph -->
+                    <p class="text-lg leading-relaxed">
+                        <span class="float-left inline-block mr-6 text-7xl leading-tight font-cinzel text-warning bg-[rgba(255,255,255,0.06)] px-3 py-2 rounded">D</span>
+                            epuis toujours, j’ai été captivée par la puissance des images et des formes, par cette magie silencieuse qui raconte des histoires sans un mot. La communication visuelle s’est imposée à moi comme un langage universel, capable d’émouvoir, de rassembler et d’inspirer. Que ce soit à travers une affiche, une vidéo ou une publication sur les réseaux sociaux, j’aime explorer toutes les manières dont un visuel peut transmettre une émotion sincère
+                    </p>
+                    <p class="mt-2 text-lg leading-relaxed">
+                        Actuellement étudiante en deuxième année de <strong>BUT Métiers du Multimédia et de l’Internet à Montbéliard</strong>, je découvre chaque jour la richesse de ce domaine où la créativité rencontre la technique. Mon apprentissage m’amène à toucher à tout — du graphisme à la vidéo, de la conception visuelle à la narration numérique — pour comprendre comment chaque projet peut trouver sa propre voix.
+                    </p>
+                    <p class="mt-2 text-lg leading-relaxed">
+                        CChaque réalisation est pour moi une expérience, une rencontre, une leçon. Chaque projet m’apprend quelque chose : sur les outils, sur le monde, mais surtout sur moi-même. C’est dans cette quête d’expression sincère que je puise mon envie de créer et de progresser.
+                    </p>
+                    <!-- highlighted quote block with small square accent -->
+                    <div class="mt-2 mb-4 flex items-start gap-4">
+                        <div class="w-4 h-4 bg-warning mt-3 rounded-sm"></div>
+                        <div class="flex-1 bg-[rgba(255,246,230,0.9)] border-l-4 border-warning/60 p-4 italic text-sm">
+                        <div class="text-xs font-bold text-warning mb-1">Ma philosophie :</div>
+                            Créer, c’est chercher à éveiller une émotion, à laisser une trace, aussi infime soit-elle. Je crois qu’un bon design ne se contente pas d’être vu, il se ressent.
+                        </div>
+                    </div>
+                    <p class="mt-2 text-lg leading-relaxed">
+                        Et lorsque je ne suis pas devant mon écran, je me laisse inspirer par les petites choses du quotidien — une balade, une lecture, une rencontre, une chanson. Car l’inspiration est partout ; il suffit simplement de savoir la regarder.
+                    </p>
+                    </article>
+                </div>
+
+                <!-- pagination centered bottom -->
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center">
+                  <p>IV</p>
+                  <a href="">Mention Légales</a>
+                </div>
+
+                <!-- bouton suivant bottom-right -->
+                <a href="/projet"
+                    class="absolute bottom-6 right-6 inline-flex items-center gap-3 bg-secondary text-white px-4 py-2 rounded-md font-cinzel text-sm tracking-widest shadow-md transition-transform duration-300 hover:bg-accent hover:-translate-y-1 pointer-events-auto">
+                    PAGE SUIVANTE <span class="text-lg">→</span>
+                </a>
+
+                <!-- menu bookmark (reste collé au bord droit) -->
+                 <div class="absolute top-[45%] right-0 -translate-y-1/2 z-40 pointer-events-auto">
+                    <div class="bg-base-200/95 rounded-l-lg shadow-lg p-2 border-l border-accent/30">
+                        <BookmarkNav currentPage="about" className="translate-x-0" />
+                    </div>
+                </div>
+            </section>
+
+          
+        </div>
+      </div>
+    </div>
+  </PageTransition>
+</Layout>

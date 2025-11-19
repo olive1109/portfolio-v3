@@ -1,0 +1,23 @@
+---
+import '../styles/global.css'
+
+const { title, chapter, noScroll } = Astro.props
+---
+
+<!doctype html>
+<html lang="fr" data-theme="portofolio">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Portfolio de Mélissa Durand - Designer Numérique" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#F1E3C2" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Portfolio de Noëlie Ahuir</title>
+  </head>
+  <body class={"font-medieval bg-primary text-base-content " + (noScroll ? 'no-scroll' : '')}>
+    
+    <main >
+      <slot />
+    </main>
+  </body>
+</html>

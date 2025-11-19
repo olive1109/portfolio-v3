@@ -1,0 +1,324 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageTransition from '../components/PageTransition.astro';
+import BookmarkNav from '../components/BookmarkNav.astro';
+import { Image } from 'astro:assets';
+import Tavue from '../../public/image/tavue/tavue.png';
+import TavueMockup from '../../public/image/tavue/tavue-2.png';
+import TavueMockup2 from '../../public/image/tavue/tavue-3.png';
+import TavueMockup3 from '../../public/image/tavue/tavue-4.png';
+import Tavuelogo from '../../public/image/tavue/logo.svg';
+import Arrow from '../../public/icons/arrow.svg';
+---
+
+<Layout title="Mes projets">
+  <PageTransition>
+  <!-- changed: align to start on small screens so left page reaches the top -->
+  <!-- solid brown background instead of textured image -->
+  <div class="h-screen flex items-start md:items-center justify-center bg-accent relative overflow-auto">
+      <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#2e241b]/60 pointer-events-none"></div>
+      <div class="grain absolute inset-0 pointer-events-none opacity-30 mix-blend-overlay"></div>
+
+      <div class="relative w-[95vw] max-w-[1800px] mx-auto rounded-3xl overflow-hidden shadow-2xl border-[4px] border-[#3B2C23]/50 h-auto md:h-[100vh]">
+        <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none">
+          <div class="absolute h-[94%] w-[98%] bg-base-200/90 rounded-2xl shadow-2xl -translate-x-4"></div>
+          <div class="absolute h-[94%] w-[98%] bg-base-200/95 rounded-2xl shadow-xl translate-x-4"></div>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 rounded-2xl shadow-2xl items-stretch h-full overflow-hidden border-[3px] border-secondary/50 bg-primary">
+
+          <!-- Page gauche (carousel area) -->
+          <section class="relative bg-primary/95 text-primary-content rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none p-6 md:p-12 shadow-inner h-full">
+            <div class="max-w-[520px] mx-auto flex flex-col h-full">
+              <p class="text-xs text-accent/70 tracking-widest text-center mb-4">CHAPITRE III</p>
+              <h1 class="font-cinzel text-3xl md:text-5xl text-accent tracking-widest text-center mb-6">Mes projets</h1>
+              <div class="mx-auto w-20 h-0.5 bg-gradient-to-r from-transparent via-warning to-transparent opacity-70 mb-8"></div>
+
+              <!-- interactive viewport: horizontal carousel, prevents vertical hijack -->
+              <div id="cards-scroll" class="relative flex-1 overflow-visible pr-2 pb-20">
+                <div id="cards-carousel" class="relative h-full">
+                  <div id="cards-viewport" class="overflow-hidden h-full" style="touch-action: pan-x;">
+                    <div id="cards-track" class="flex transition-transform duration-500 will-change-transform h-full"></div>
+                  </div>
+
+                  <!-- source des cartes (template clones) -->
+                  <div id="cards-source" class="sr-only" aria-hidden="true">
+                    <div class="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8">
+                      <div class="card-wrapper">
+                        <button
+                          type="button"
+                          class="project-card relative flex flex-col justify-start items-stretch w-full text-left bg-accent rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1"
+                          data-id="local-sample"
+                          aria-label="Ouvrir projet Ta vue"
+                          data-href="/projet-tavue"
+                        >
+                          <div class="bg-[#F8F8F6] h-32 md:h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]">
+                            <Image src={Tavuelogo} alt="Logo Ta vue" class="object-cover h-auto w-full p-1" />
+                          </div>
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Ta vue</div>
+                            <div class="text-xs md:text-sm text-neutral-300 mt-2">Site complet pour créer et personnaliser des lunettes.</div>
+                          </div>
+                        </button>
+                      </div>
+
+                      <div class="card-wrapper">
+                        <button type="button" class="project-card relative flex flex-col justify-start items-stretch w-full h-autotext-left bg-accent rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1" aria-label="Projet exemple">
+                          <div class="bg-neutral h-32 md:h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]"></div>
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Projet</div>
+                            <div class="text-xs md:text-sm text-neutral-300 mt-2">Résumé du projet.</div>
+                          </div>
+                        </button>
+                      </div>
+
+                      <div class="card-wrapper">
+                        <button type="button" class="project-card relative flex flex-col justify-start items-stretch w-full text-left bg-accent rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1" aria-label="Projet exemple 2">
+                          <div class="bg-neutral h-32 md:h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]"></div>
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Projet</div>
+                            <div class="text-xs md:text-sm text-neutral-300 mt-2">Résumé du projet.</div>
+                          </div>
+                        </button>
+                      </div>
+
+                      <div class="card-wrapper">
+                        <button type="button" class="project-card relative flex flex-col justify-start items-stretch w-full text-left bg-accent rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1" aria-label="Projet exemple 3">
+                          <div class="bg-neutral h-32 md:h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]"></div>
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Projet</div>
+                            <div class="text-xs md:text-sm text-neutral-300 mt-2">Résumé du projet.</div>
+                          </div>
+                        </button>
+                      </div>
+                      <div class="card-wrapper">
+                        <button type="button" class="project-card relative flex flex-col justify-start items-stretch w-full text-left bg-accent rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1" aria-label="Projet exemple 3">
+                          <div class="bg-neutral h-32 md:h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]"></div>
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Projet</div>
+                            <div class="text-xs md:text-sm text-neutral-300 mt-2">Résumé du projet.</div>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- controls: fixed inside left section -->
+              <div class="absolute bottom-16 left-1/2 -translate-x-1/2 z-40 flex items-center gap-4 pointer-events-auto">
+                <button id="cards-prev" class="p-2 md:p-3 rounded-md bg-base-200/95 hover:bg-base-200 text-sm md:text-base text-primary-content shadow" aria-label="Précédent">
+                  <Arrow/>
+                </button>
+                <button id="cards-next" class="p-2 md:p-3 rounded-md bg-base-200/95 hover:bg-base-200 text-sm md:text-base text-primary-content shadow" aria-label="Suivant">
+                  <Arrow style="transform: scaleX(-1); transform-origin: center;"/>
+                </button>
+              </div>
+
+              <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center pointer-events-none">
+                <p>— V —</p>
+                <p>@ 2025 Noëlie Ahuir</p>
+              </div>
+
+              <a href="/about"
+                 class="absolute bottom-6 left-6 inline-flex items-center gap-3 bg-secondary text-white px-4 py-2 rounded-md font-cinzel text-sm tracking-widest shadow-md transition-transform duration-300 hover:bg-accent hover:-translate-y-1 pointer-events-auto z-40">
+                <span class="text-lg">←</span> PAGE précédente
+              </a>
+            </div>
+          </section>
+
+          <!-- Page droite : seul l'article défile -->
+          <section class="relative bg-primary/95 text-primary-content rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none pr-6 pl-6 md:pr-10 md:pl-10 shadow-inner h-full flex flex-col overflow-hidden">
+            <div class="flex-1 flex items-start justify-center py-8 px-2 md:px-4">
+              <div class="w-full max-w-4xl relative overflow-hidden rounded-md shadow-inner bg-gradient-to-r from-neutral-100 via-[#fffef0] to-neutral-100">
+                <!-- corner decoration (tailwind utilities) -->
+
+                <div class="p-5 md:p-6 mb-5">
+                  <article
+                    aria-label="Détails du projet"
+                    class="relative w-full bg-secondary-content border border-[#e6d6c2] rounded-xl shadow-secondary-content/50 p-6 md:p-10 space-y-10 overflow-auto max-h-[calc(100vh-8rem)]"
+                  > 
+                <header class="text-center">
+                  <h1 class="font-cinzel text-3xl md:text-4xl text-accent tracking-wide">Ta Vue — Configurateur</h1>
+                  <div class="mx-auto w-16 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-warning to-transparent opacity-70 m-4"></div>
+                </header>
+
+                <section class="prose prose-sm text-[#34281f]">
+                  <p>Dans le cadre d’une SAE, j'ai conçu et développé un configurateur web de lunettes personnalisées pour la marque fictive TaVue.</p>
+                </section>
+
+                <figure class="bg-[#f1efe8] border border-[#e0d6cc] rounded-md p-4 flex flex-col items-center">
+                  <Image src={Tavuelogo} alt="Logo Ta vue" class="w-full md:w-48 h-auto object-cover rounded-sm mb-2"/>
+                  <figcaption class="text-sm text-[#3b2a21] text-center">Logo TaVue — réalisé dans le cadre du projet.</figcaption>
+                </figure>
+
+                <section class="bg-[rgba(59,42,33,0.03)] border border-[#e5d9cf] rounded-md p-4 md:p-6 shadow-sm">
+                  <h2 class="text-lg font-semibold text-[#3b2a21] mb-3">À propos du projet</h2>
+                  <p class="text-sm text-[#403427] mb-3">Le projet vise une expérience raffinée, minimaliste et intuitive, avec gestion des modèles, génération IA et commande.</p>
+                  <ul class="list-disc ml-5 space-y-1 text-sm text-[#403427]">
+                    <li>Personnalisation SVG</li>
+                    <li>Génération via IA</li>
+                    <li>Gestion des comptes et des créations</li>
+                    <li>Commande finalisée</li>
+                  </ul>
+                </section>
+
+                <!-- Galerie : big image + thumbnails -->
+                <section class="flex flex-col gap-4 md:gap-6">
+                  <div class="bg-[#f1efe8] border border-[#e0d6cc] rounded-md overflow-hidden shadow-sm">
+                    <Image id="bigMockup" src={Tavue} alt="Mockup principal Ta vue" class="object-cover w-full rounded-sm" />
+                  </div>
+
+                  <div class="flex flex-wrap gap-2 md:gap-4">
+                    <button type="button" class="mockup-thumb flex-1 min-w-[45%] md:flex-1 bg-[#f1efe8] border border-[#e0d6cc] rounded-md overflow-hidden shadow-sm p-0 focus:outline-none" aria-label="Voir mockup 1">
+                      <Image src={Tavue} alt="Mockup 1 Ta vue" class="object-cover w-full h-32 md:h-40" />
+                    </button>
+
+                    <button type="button" class="mockup-thumb flex-1 min-w-[45%] md:flex-1 bg-[#f1efe8] border border-[#e0d6cc] rounded-md overflow-hidden shadow-sm p-0 focus:outline-none" aria-label="Voir mockup 2">
+                      <Image src={TavueMockup} alt="Mockup 2 Ta vue" class="object-cover w-full h-32 md:h-40" />
+                    </button>
+
+                    <button type="button" class="mockup-thumb flex-1 min-w-[45%] md:flex-1 bg-[#f1efe8] border border-[#e0d6cc] rounded-md overflow-hidden shadow-sm p-0 focus:outline-none" aria-label="Voir mockup 3">
+                      <Image src={TavueMockup2} alt="Mockup 3 Ta vue" class="object-cover w-full h-32 md:h-40" />
+                    </button>
+
+                    <button type="button" class="mockup-thumb flex-1 min-w-[45%] md:flex-1 bg-[#f1efe8] border border-[#e0d6cc] rounded-md overflow-hidden shadow-sm p-0 focus:outline-none" aria-label="Voir mockup 4">
+                      <Image src={TavueMockup3} alt="Mockup 4 Ta vue" class="object-cover w-full h-32 md:h-40" />
+                    </button>
+                  </div>
+                </section>
+
+                <section class="prose prose-sm text-[#403427]">
+                  <p>Le développement s’est déroulé sur trois journées et a combiné : UX/UI, modélisation, frontend & backend...</p>
+                </section>
+
+              </article>
+            </div>
+          </div>
+
+              <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center pointer-events-none">
+                <p>— VI —</p>
+                <a href="">Mention Légales</a>
+              </div>
+
+              <a href="/projet" class="absolute bottom-6 right-4 md:right-6 inline-flex items-center gap-3 bg-secondary text-white px-4 py-2 rounded-md font-cinzel text-sm tracking-widest shadow-md transition-transform duration-300 hover:bg-accent hover:-translate-y-1 z-20 pointer-events-auto">
+                PAGE SUIVANTE <span class="text-lg">→</span>
+              </a>
+          </section>
+
+        </div>
+      </div>
+    </div>
+    <BookmarkNav currentPage="projet" />
+    <script type="module">
+      window.addEventListener('DOMContentLoaded', () => {
+        const log = (...args) => { if (typeof console !== 'undefined') console.log('[projet]', ...args); };
+
+        // CAROUSEL
+        (function () {
+          const source = document.getElementById('cards-source');
+          const track = document.getElementById('cards-track');
+          const prev = document.getElementById('cards-prev');
+          const next = document.getElementById('cards-next');
+          const viewport = document.getElementById('cards-viewport');
+          if (!track || !viewport) { log('carousel skipped: missing elements'); return; }
+
+          let wrappers = [];
+          if (source) wrappers = Array.from(source.querySelectorAll('.card-wrapper'));
+          if (!wrappers.length) wrappers = Array.from(document.querySelectorAll('.card-wrapper'));
+          if (!wrappers.length) { log('carousel: no wrappers found'); return; }
+
+          let PER_PAGE = window.innerWidth < 768 ? 1 : 4;
+          let pages = Math.max(1, Math.ceil(wrappers.length / PER_PAGE));
+          let current = 0;
+
+          const buildPages = () => {
+            PER_PAGE = window.innerWidth < 768 ? 1 : 4;
+            pages = Math.max(1, Math.ceil(wrappers.length / PER_PAGE));
+            track.innerHTML = '';
+            for (let p = 0; p < pages; p++) {
+              const page = document.createElement('div');
+              page.className = 'w-full flex-shrink-0';
+              page.style.width = '100%';
+              const grid = document.createElement('div');
+              grid.className = 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 md:gap-8';
+              for (let i = 0; i < PER_PAGE; i++) {
+                const idx = p * PER_PAGE + i;
+                if (idx >= wrappers.length) break;
+                grid.appendChild(wrappers[idx].cloneNode(true));
+              }
+              page.appendChild(grid);
+              track.appendChild(page);
+            }
+          };
+
+          const update = () => {
+            const vw = viewport.clientWidth || document.documentElement.clientWidth;
+            track.style.transform = `translateX(-${current * vw}px)`;
+            if (prev) prev.disabled = current === 0;
+            if (next) next.disabled = current === pages - 1;
+          };
+
+          let resizeTimeout;
+          window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => { buildPages(); update(); }, 120);
+          });
+
+          if (prev) prev.addEventListener('click', () => { if (current > 0) { current--; update(); } });
+          if (next) next.addEventListener('click', () => { if (current < pages - 1) { current++; update(); } });
+
+          // swipe support (pointer + touch fallback)
+          let startX = null;
+          let moved = 0;
+          const onDown = (e) => {
+            startX = (e.touches ? e.touches[0].clientX : e.clientX);
+            moved = 0;
+          };
+          const onMove = (e) => {
+            if (startX === null) return;
+            const clientX = (e.touches ? e.touches[0].clientX : e.clientX);
+            moved = clientX - startX;
+          };
+          const onUp = () => {
+            if (startX !== null) {
+              if (moved < -50 && current < pages - 1) current++;
+              if (moved > 50 && current > 0) current--;
+            }
+            startX = null; moved = 0; update();
+          };
+
+          viewport.addEventListener('pointerdown', onDown, { passive: true });
+          viewport.addEventListener('pointermove', onMove, { passive: true });
+          viewport.addEventListener('pointerup', onUp, { passive: true });
+          viewport.addEventListener('touchstart', onDown, { passive: true });
+          viewport.addEventListener('touchmove', onMove, { passive: true });
+          viewport.addEventListener('touchend', onUp, { passive: true });
+
+          buildPages();
+          update();
+        })();
+
+        // THUMBNAILS -> big image swapping
+        (function () {
+          const bigImg = document.getElementById('bigMockup');
+          if (!bigImg) { log('bigMockup not found'); return; }
+
+          document.addEventListener('click', (e) => {
+            const btn = e.target.closest && e.target.closest('.mockup-thumb');
+            if (!btn) return;
+            const thumbImg = btn.querySelector('img');
+            if (!thumbImg) return;
+            bigImg.src = thumbImg.src;
+            bigImg.alt = thumbImg.alt || '';
+            document.querySelectorAll('.mockup-thumb').forEach(b => b.classList.remove('ring-2', 'ring-accent'));
+            btn.classList.add('ring-2', 'ring-accent');
+          });
+
+          const first = document.querySelector('.mockup-thumb');
+          if (first) first.classList.add('ring-2', 'ring-accent');
+        })();
+      });
+    </script>
+  </PageTransition>
+</Layout>

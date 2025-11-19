@@ -1,0 +1,48 @@
+---
+const { children } = Astro.props
+---
+
+<div class="page-transition-wrapper" transition:animate="fade">
+  <div class="page-transition">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .page-transition-wrapper {
+    width: 100%;
+  }
+
+  .page-transition {
+    animation: pageFlipIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes pageFlipIn {
+    0% {
+      opacity: 0;
+      transform: perspective(1200px) rotateY(25deg) translateZ(-100px);
+    }
+    50% {
+      transform: perspective(1200px) rotateY(10deg) translateZ(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: perspective(1200px) rotateY(0deg) translateZ(0px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page-transition {
+      animation: fade 0.3s ease-in-out;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+</style>

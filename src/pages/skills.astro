@@ -1,0 +1,235 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageTransition from '../components/PageTransition.astro';
+import BookmarkNav from '../components/BookmarkNav.astro';
+// no Image import here — SVGs are inlined as components or referenced from /public
+import Figma from '../../public/icons/figma.svg';
+import Photoshop from '../../public/icons/photoshop.svg';
+import Illustrator from '../../public/icons/illustrator.svg';
+import Canva from '../../public/icons/canva.svg';
+import Premiere from '../../public/icons/premiere-pro.svg';
+import Code from '../../public/icons/astro.svg';
+import Github from '../../public/icons/git-hub.svg';
+import Css from '../../public/icons/html3.svg';
+import Html5 from '../../public/icons/html5.svg';
+import Pocketbase from '../../public/icons/pocketbase.svg';
+import Sql from '../../public/icons/sql.svg';
+import Tailwind from '../../public/icons/tailwind.svg';
+import Wordpress from '../../public/icons/word-presse.svg';
+---
+<Layout title="Compétences">
+  <PageTransition>
+    <div class="min-h-screen flex items-center justify-center bg-cover bg-center bg-fixed relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#2e241b]/60 pointer-events-none"></div>
+      <div class="grain absolute inset-0 pointer-events-none opacity-30 mix-blend-overlay"></div>
+
+      <div class="relative w-[95vw] h-[100vh] max-w-[1800px] mx-auto rounded-3xl overflow-hidden shadow-2xl border-[4px] border-[#3B2C23]/50">
+        <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none">
+          <div class="absolute h-[94%] w-[98%] bg-base-200/90 rounded-2xl shadow-2xl -translate-x-4"></div>
+          <div class="absolute h-[94%] w-[98%] bg-base-200/95 rounded-2xl shadow-xl translate-x-4"></div>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-[1fr_36px_1fr] rounded-2xl shadow-2xl items-stretch h-full overflow-hidden border-[3px] border-secondary/50 bg-primary">
+          <!-- LEFT: étagères -->
+          <section class="relative bg-primary/95 text-primary-content rounded-l-2xl p-10 shadow-inner h-full overflow-auto bg-cover bg-blend-multiply">
+            <div class="max-w-[520px] mx-auto">
+              <p class="text-xs text-warning/70 tracking-widest text-center mb-4">CHAPITRE VI</p>
+              <h2 class="font-cinzel text-4xl tracking-widest text-center mb-6">Mes Logiciels Utilisés</h2>
+              <div class="mx-auto w-20 h-0.5 bg-gradient-to-r from-transparent via-warning to-transparent opacity-70 mb-8"></div>
+
+              <!-- étagère design -->
+              <div class="relative mb-12">
+                <div class="w-full">
+                  <!-- ligne de pills (alignées en bas) -->
+                  <div class="flex items-end gap-3 justify-start ">)
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-[#39413b] rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">Figma</span>
+                      </div>
+                      <Figma class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+
+                    <!-- pill 2 -->
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-[#39413b] rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">Canva</span>
+                      </div>
+                      <Canva class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+
+                    <!-- pill 3 -->
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-[#39413b] rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">PHOTOSHOP</span>
+                      </div>
+                      <Photoshop class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+
+                    <!-- pill 4 -->
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-[#39413b] rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">PREMIÈRE PRO</span>
+                      </div>
+                      <Premiere class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+
+                    <!-- pill 5 -->
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-[#39413b] rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">ILLUSTRATOR</span>
+                      </div>
+                      <Illustrator class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+                  </div>
+
+                  <!-- barre de l'étagère -->
+                  <div class="absolute left-0 right-0 bottom-0 flex justify-center pointer-events-none">
+                    <div class="w-[100%] h-3 bg-[#5c2b26] rounded-full shadow-inner mt-2"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- étagère code -->
+              <div class="relative mt-16">
+                <div class="flex gap-4 items-end justify-start">
+                  <div class="flex items-end gap-3 justify-start ">)
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-accent rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">Astro</span>
+                      </div>
+                      <Code class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+
+                    <!-- pill 2 -->
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-accent rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">Git-Hub</span>
+                      </div>
+                      <Github class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+
+                    <!-- pill 3 -->
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-accent rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">CSS3</span>
+                      </div>
+                      <Css class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+                  
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-accent rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">HTML5</span>
+                      </div>
+                      <Html5 class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>  
+                    <!-- pill 5 -->
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-accent rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">Pocketbase</span>
+                      </div>
+                      <Pocketbase class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+
+                    <!-- pill 5 -->
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-accent rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">SQL</span>
+                      </div>
+                      <Sql class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+
+                    <!-- pill 5 -->
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-accent rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">Tailwind CSS</span>
+                      </div>
+                      <Tailwind class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+
+                    <!-- pill 5 -->
+                    <div class="relative flex items-center">
+                      <div class="w-13 h-64 bg-accent rounded-lg shadow-lg flex items-center justify-center text-[#efe8df]">
+                        <span class="font-cinzel text-sm tracking-wider leading-none transform -rotate-90 whitespace-nowrap">Word-Press</span>
+                      </div>
+                      <Wordpress class="absolute left-1/2 top-6 -translate-x-1/2 w-5 h-auto"/>
+                      <div class="absolute left-1/2 bottom-6 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#cdbfae]"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute left-0 right-0 bottom-0 h-3 bg-[#5c2b26] rounded-full mt-2 p-1"></div>
+              </div>
+
+              <!-- pagination / deco -->
+              <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center pointer-events-none">
+                <p>— VII —</p>
+                <p>@ 2025 Noëlie Ahuir</p>
+              </div>
+
+              <a href="/projet-tavue"
+                 class="absolute bottom-6 left-6 inline-flex items-center gap-3 bg-secondary text-white px-4 py-2 rounded-md font-cinzel text-sm tracking-widest shadow-md transition-transform duration-300 hover:bg-accent hover:-translate-y-1 pointer-events-auto z-40">
+                <span class="text-lg">←</span> PAGE précédente
+              </a>
+            </div>
+          </section>
+
+          <!-- SPINE -->
+          <div class="relative flex items-center justify-center pointer-events-none">
+            <div class="w-full h-full flex items-center justify-center">
+              <div class="w-1.5 h-5/6 bg-base-200/70 rounded"></div>
+              <div class="w-1.5 h-5/6 bg-base-200/70 rounded ml-2"></div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Competences texte + détail hover (parchment style) -->
+          <section class="relative bg-primary/95 text-primary-content rounded-r-2xl p-8 md:p-12 shadow-inner h-full overflow-auto bg-cover bg-blend-multiply">
+            <div class="max-w-[720px] mx-auto px-6 md:px-12 py-8 md:py-12">
+              <p class="text-xs text-warning/70 tracking-widest text-center mb-4">CHAPITRE VI</p>
+              <h2 class="font-cinzel text-5xl md:text-6xl tracking-wide text-center mb-6">Mes Compétences</h2>
+              <div class="mx-auto w-24 h-0.5 bg-gradient-to-r from-transparent via-warning to-transparent opacity-70 mb-8"></div>
+
+              <div class="font-Medieval text-[18px] md:text-[20px] leading-relaxed text-base-content space-y-6 md:space-y-8 px-2 md:px-6">
+                <p>Design graphique (affiches, visuels, identités visuelles)
+                <br/>Conception de maquettes (UI/UX)
+                <br/>Création de contenus adaptés aux différentes plateformes — stratégie de communication digitale.</p>
+
+                <p>Travail en équipe, organisation de projets, créativité, capacité d'adaptation.
+                <br/>Notions en HTML/CSS/WordPress, création de supports multimédias (vidéo, motion, photo).
+                <br/>Utilisation de l'IA comme outil créatif (assistant, brainstorming, optimisation).</p>
+              </div>
+
+              <!-- detail panel that appears when hovering a spine -->
+              <div id="skill-detail" class="absolute top-32 right-8 w-72 bg-[rgba(255,246,230,0.92)] border-l-4 border-warning/60 p-4 italic text-sm shadow-lg hidden">
+                <div id="skill-detail-title" class="text-xs font-bold text-warning mb-2"></div>
+                <div id="skill-detail-desc" class="text-sm text-base-content"></div>
+                <div id="skill-detail-logo" class="mt-3"></div>
+              </div>
+            </div>
+
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center pointer-events-none">
+              <p>— VI —</p>
+              <a href="">Mention Légales</a>
+            </div>
+
+            <!-- styled next page button (parchment look) -->
+            <a href="/contact" class="absolute bottom-8 right-8 inline-flex items-center justify-center gap-3 bg-[#9F6932] text-white px-6 py-3 rounded shadow-lg border border-[#7a4f30] font-cinzel text-sm tracking-widest hover:bg-[#7a4f30] transition-colors">
+              Page suivante
+            </a> 
+          </section>
+        </div>
+      </div>
+    </div>
+    <BookmarkNav currentPage="skills" />
+  </PageTransition>
+</Layout>

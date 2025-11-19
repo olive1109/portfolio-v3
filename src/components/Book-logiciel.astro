@@ -1,0 +1,21 @@
+---
+const { logiciel, pbBase } = Astro.props;
+const logoName = logiciel?.logo ?? null;
+const logoSrc = logoName ? `${pbBase.replace(/\/$/, '')}/api/files/logiciel/${logiciel.id}/${logoName}` : '/image/placeholder.png';
+const color = logiciel?.color ?? 'bg-neutral/10';
+const type = logiciel?.type ?? '';
+---
+<button
+  type="button"
+  class="skill-card relative flex items-center justify-center w-12 h-48 rounded-md shadow-md overflow-visible focus:outline-none"
+  data-id={logiciel.id}
+  data-title={logiciel.titre}
+  data-desc={logiciel.descritpion ?? logiciel.description ?? logiciel.descript? logiciel.descript : ''}
+  data-logo={logoSrc}
+  aria-label={logiciel.titre}
+>
+  <!-- spine -->
+  <div class={`w-12 h-44 rounded-md flex items-center justify-center text-xs font-bold text-white ${color} transform -rotate-90 origin-center`} style="writing-mode: horizontal-tb;">
+    <span class="whitespace-nowrap">{logiciel.titre}</span>
+  </div>
+</button>

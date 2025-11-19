@@ -1,0 +1,161 @@
+---
+const { currentPage = '', className = '' } = Astro.props;
+
+const pages = [
+  { slug: '', label: 'Prologue' },
+  { slug: 'about', label: 'À propos' },
+  { slug: 'projet-tavue', label: 'Mes Projets' },
+  { slug: 'skills', label: 'Mes Compétences' },
+  { slug: 'contact', label: 'Me contacter' },
+];
+
+const colors = ['#4a2220', '#5b3a34', '#7f533f', '#c07a45', '#6b2a28'];
+---
+<div id="bookmark-component" class={`z-50 ${className}`} aria-hidden="false">
+  <!-- overlay (mobile) -->
+  <div id="bookmark-overlay" class="fixed inset-0 bg-black/40 z-40 opacity-0 pointer-events-none transition-opacity duration-200 md:hidden" aria-hidden="true"></div>
+
+  <!-- drawer (mobile) -->
+  <aside
+    id="bookmark-drawer"
+    class="fixed top-0 right-0 z-50 h-full w-[86vw] max-w-[420px] bg-[#4a2220]/98 text-accent-content transform translate-x-full transition-transform duration-300 md:static md:translate-x-0 md:bg-transparent md:w-auto md:h-auto md:shadow-none"
+    role="dialog"
+    aria-label="Signets"
+    aria-hidden="true"
+  >
+    <div class="h-full flex flex-col p-5 gap-4 md:p-0 md:gap-2">
+      <div class="flex items-center justify-between md:hidden">
+        <h3 class="font-cinzel text-accent text-lg">Signets</h3>
+        <button id="bookmark-close" class="w-9 h-9 rounded-md bg-[#f3efe8]/80 flex items-center justify-center" title="Fermer">
+          <span class="sr-only">Fermer</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <nav class="flex-1 overflow-auto md:flex md:flex-col md:items-center md:gap-3" aria-label="Navigation signets">
+        <ul class="flex flex-col gap-3 md:flex-col md:gap-3">
+          {pages.map((page) => (
+            <li>
+              <a
+                href={page.slug ? `/${page.slug}` : '/'}
+                class={`block px-4 py-3 rounded-md text-left text-base font-medium
+                  ${currentPage === page.slug ? 'bg-[#efe8df] text-[#3b2a21]' : 'bg-[#6a2f2d] text-white/95 hover:bg-[#7b3f3d]'}`}
+                data-page={page.slug}
+                aria-current={currentPage === page.slug ? 'page' : null}
+              >
+                {page.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="pt-3 border-t border-white/6 md:pt-0 md:border-0">
+        <a href="/contact" class="block w-full text-center px-4 py-3 rounded-md bg-[#8f5a3d] text-white">Me contacter</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- mobile toggle (thumb) -->
+  <button
+    id="bookmark-toggle"
+    aria-expanded="false"
+    aria-controls="bookmark-drawer"
+    class="fixed right-4 bottom-6 z-50 w-12 h-12 rounded-full bg-[#efe8df] flex items-center justify-center shadow-lg border border-[#cdbfae] md:hidden"
+    title="Ouvrir le menu"
+  >
+    <span class="sr-only">Ouvrir le menu</span>
+    <svg id="bookmark-icon" class="w-6 h-6 transition-transform duration-200" viewBox="0 0 24 24" aria-hidden>
+      <line id="line1" x1="4" y1="7" x2="20" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line id="line2" x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line id="line3" x1="4" y1="17" x2="20" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <!-- desktop pills -->
+  <nav id="bookmark-nav-desktop" class="hidden md:flex flex-col items-end gap-4 pointer-events-auto" aria-label="Signets (desktop)">
+    <ul class="flex flex-col items-end gap-4">
+      {pages.map((page, i) => (
+        <li>
+          <a
+            href={page.slug ? `/${page.slug}` : '/'}
+            class={`bookmark-pill inline-flex items-center justify-center shadow select-none transform transition-transform duration-200`}
+            aria-current={currentPage === page.slug ? 'page' : null}
+            title={page.label}
+            style={`background:${colors[i]}; color:#fff; border-radius: 6px 0 0 6px; padding: 10px 18px; writing-mode: vertical-rl; text-orientation: mixed;`}
+          >
+            <span class="font-cinzel text-sm whitespace-nowrap">{page.label}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>
+
+<style>
+  #bookmark-component { pointer-events: auto; position: fixed; top: 50%; transform: translateY(-50%); right: 12px; z-index: 60; }
+
+  @media (min-width: 768px) {
+    /* place pills just outside centered container (container = min(95vw, 1800px)) */
+    #bookmark-component { right: max(12px, calc((100vw - min(95vw, 1800px)) / 2 - 16px)); }
+    #bookmark-nav-desktop { display: block; }
+    /* hide mobile-only elements */
+    #bookmark-toggle, #bookmark-overlay, #bookmark-close, #bookmark-drawer { display: none; }
+  }
+
+  /* pill styling */
+  .bookmark-pill { min-width: 48px; padding-top: 8px; padding-bottom: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.35); }
+  .bookmark-pill:hover { transform: translateX(-8px); box-shadow: 0 10px 22px rgba(0,0,0,0.45); }
+  .bookmark-pill[aria-current="page"] { outline: 2px solid rgba(255,255,255,0.06); transform: translateX(-6px); }
+
+  /* small overlap with book */
+  #bookmark-nav-desktop ul { margin-right: -18px; }
+  .bookmark-pill span { writing-mode: vertical-rl; transform: rotate(180deg); display:block; }
+
+  /* mobile open state controlled by body.bookmark-open */
+  body.bookmark-open #bookmark-drawer { transform: translateX(0) !important; }
+  body.bookmark-open #bookmark-overlay { opacity: 1; pointer-events: auto; }
+</style>
+
+<script type="module">
+  (function () {
+    const toggle = document.getElementById('bookmark-toggle');
+    const drawer = document.getElementById('bookmark-drawer');
+    const closeBtn = document.getElementById('bookmark-close');
+    const overlay = document.getElementById('bookmark-overlay');
+
+    // defensive init: ensure elements exist and are in closed state
+    if (!drawer) return;
+    // force closed initial state (prevents flash of open brown panel)
+    drawer.setAttribute('aria-hidden', 'true');
+    drawer.style.transform = 'translateX(100%)';
+    overlay?.classList.add('pointer-events-none');
+    overlay?.classList.remove('opacity-100');
+    overlay?.classList.add('opacity-0');
+
+    const open = () => {
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('bookmark-open');
+      toggle?.setAttribute('aria-expanded', 'true');
+      document.documentElement.style.overflow = 'hidden';
+    };
+    const close = () => {
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('bookmark-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';
+    };
+
+    toggle?.addEventListener('click', () => {
+      const isOpen = document.body.classList.contains('bookmark-open');
+      isOpen ? close() : open();
+    });
+    closeBtn?.addEventListener('click', close);
+    overlay?.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+    // ensure closed when switching to desktop
+    const onResize = () => { if (window.matchMedia('(min-width: 768px)').matches) close(); };
+    window.addEventListener('resize', onResize);
+  })();
+</script> 

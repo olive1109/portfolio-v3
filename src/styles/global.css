@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import "tailwindcss";
+
+.font-cinzel {
+  font-family: "Cinzel Decorative", serif;
+};
+
+.font-Medieval {
+  font-family: "MedievalSharp", serif;
+};
+
+/* ensure SVGs don't add extra whitespace */
+svg { display: block; }
+
+/* header specific small tweaks (uses Tailwind/DaisyUI utilities for main styling) */
+header a { text-decoration: none; }
+
+body.no-scroll,
+html.no-scroll {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none; /* évite la propagation du scroll sur mobile */
+}
+
+body {
+  background-color: #4A3D33;
+  background-image: url('/image/paper-texture.webp');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.grain {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWP4//8/AwAI/AL+Yy5+6wAAAABJRU5ErkJggg==");
+  background-size: 200px 200px;
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+}
+
+@plugin "daisyui" {
+<html lang="fr" data-theme="portofolio">
+    themes: light, dark, portofolio;
+};
+
+
+
+
+@plugin "daisyui/theme" {
+  name: "portofolio";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: #4A3D33;
+  --color-base-200: #DED3BA;
+  --color-base-300: oklch(95% 0 0);
+  --color-base-content: #111111;
+  --color-primary: #F1E3C2;
+  --color-primary-content: oklch(12% 0.042 264.695);
+  --color-secondary: #9F6932;
+  --color-secondary-content: oklch(98% 0.026 102.212);
+  --color-accent: #522623;
+  --color-accent-content: oklch(98% 0.026 102.212);
+  --color-neutral: #444A41;
+  --color-neutral-content: oklch(98% 0.026 102.212);
+  --color-info: #2A374D;
+  --color-info-content: oklch(98% 0.026 102.212);
+  --color-success: oklch(98% 0.026 102.212);
+  --color-success-content: oklch(37% 0.077 168.94);
+  --color-warning: #9F6932;
+  --color-warning-content: oklch(26% 0.079 36.259);
+  --color-error: #522623;
+  --color-error-content: oklch(27% 0.105 12.094);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.28125rem;
+  --border: 2px;
+  --depth: 1;
+  --noise: 1;
+}
+
+

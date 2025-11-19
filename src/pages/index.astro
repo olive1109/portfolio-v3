@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageTransition from '../components/PageTransition.astro';
+import BookmarkNav from '../components/BookmarkNav.astro';
+import { Image } from 'astro:assets';
+import Moi from '../../public/image/moi.jpg';
+---
+
+<Layout title="Prologue">
+  <PageTransition>
+    <div class="min-h-screen flex items-center justify-center bg-cover bg-center bg-fixed relative overflow-hidden">
+      <!-- lumière douce sur le fond -->
+      <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#2e241b]/60 pointer-events-none"></div>
+      <!-- effet de grain -->
+      <div class="grain absolute inset-0 pointer-events-none opacity-30 mix-blend-overlay"></div>
+
+      <!-- Livre -->
+      <div class="relative w-[95vw] h-[100vh] max-w-[1800px] mx-auto rounded-3xl overflow-hidden shadow-2xl border-[4px] border-[#3B2C23]/50">
+
+        <!-- pages d’arrière-plan alignées -->
+        <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none">
+          <div class="absolute h-[94%] w-[98%] bg-base-200/90 rounded-2xl shadow-2xl -translate-x-4"></div>
+          <div class="absolute h-[94%] w-[98%] bg-base-200/95 rounded-2xl shadow-xl translate-x-4"></div>
+        </div>
+
+        <!-- livre principal -->
+        <div class="relative z-10 grid grid-cols-2 rounded-2xl shadow-2xl items-stretch h-full overflow-hidden border-[3px] border-secondary/50 bg-primary">
+          <!-- Page gauche -->
+          <section class="relative bg-primary/95 text-primary-content rounded-l-2xl p-12 shadow-inner h-full overflow-auto bg-[url('/image/paper-texture.webp')] bg-cover bg-blend-multiply">
+            <h1 class="font-cinzel text-l text-secondary tracking-widest text-center mt-8 mb-6">- Chapitre I -</h1>
+            <h1 class="font-cinzel text-5xl tracking-widest text-center mt-2 mb-6">Prologue</h1>
+            <div class="mx-auto w-20 h-0.5 bg-gradient-to-r from-transparent via-warning to-transparent opacity-70 mb-8"></div>
+
+            <article class="prose prose-sm max-w-none text-base-content text-justify p-10">
+              <p class="text-lg leading-relaxed">
+                <span class="float-left inline-block mr-4 text-6xl leading-tight font-cinzel text-warning bg-[rgba(255,255,255,0.06)] px-2 py-1 rounded">D</span>
+                ans l'univers infini de la communication numérique, chaque projet est une aventure unique. Ici commence mon voyage à travers les lignes de code, les pixels et les couleurs, là où l'imagination prend forme et où les rêves deviennent réalité.
+              </p>
+
+              <p class="mt-6 text-lg leading-relaxed">
+                Je suis <strong class="text-warning font-bold">Noëlie</strong>, passionnée par l'art de raconter des histoires visuelles. Chaque page de ce portfolio est une fenêtre ouverte sur mon univers créatif, un chapitre de mon parcours artistique.
+              </p>
+
+              <div class="text-center py-8 border-y border-warning/30 mt-15">
+                <p class="italic text-xl font-medieval mb-2">"La créativité est l'intelligence qui s'amuse"</p>
+                <p class="text-sm text-neutral tracking-widest">— Albert Einstein</p>
+              </div>
+            </article>
+
+            <!-- pagination -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center">
+              <p>— I —</p>
+              <p>@ 2025 Noëlie Ahuir</p>
+            </div>
+          </section>
+
+          <!-- Page droite -->
+          <section class="relative bg-primary/95 text-primary-content rounded-r-2xl p-12 shadow-inner h-full overflow-hidden bg-[url('/image/paper-texture.webp')] bg-cover bg-blend-multiply">
+            <!-- portrait centré -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="w-full max-w-md flex flex-col items-center justify-center gap-3 pointer-events-auto">
+                <div class="relative bg-base-300/90 border-4 border-secondary rounded-xl shadow-2xl p-3 mx-auto">
+                  <Image src={Moi} alt="Photo de Mélissa" class="w-full max-w-[320px] h-auto object-cover rounded-md shadow-md" />
+                  <p class="text-xs mt-2 text-center">- photo de Noëlie Ahuir -</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- pagination -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center">
+              <p>— II —</p>
+              <a href="">Mention Légales</a>
+            </div>
+
+            <!-- menu bookmark (remonté et ombré) -->
+            <div class="absolute top-[45%] right-0 -translate-y-1/2 z-40 pointer-events-auto">
+              <div class="bg-base-200/95 rounded-l-lg shadow-lg p-2 border-l border-accent/30">
+                <BookmarkNav currentPage="" className="translate-x-0" />
+              </div>
+            </div>
+
+            <!-- bouton suivant -->
+            <a href="/about"
+               class="absolute bottom-6 right-6 inline-flex items-center gap-3 bg-secondary text-white px-4 py-2 rounded-md font-cinzel text-sm tracking-widest shadow-md transition-transform duration-300 hover:bg-accent hover:-translate-y-1 pointer-events-auto">
+              PAGE SUIVANTE <span class="text-lg">→</span>
+            </a>
+          </section>
+        </div>
+      </div>
+    </div>
+  </PageTransition>
+</Layout>

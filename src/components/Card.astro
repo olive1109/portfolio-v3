@@ -1,0 +1,35 @@
+---
+import Imagepb from './Imagepb.astro';
+const { projet } = Astro.props;
+
+// primary image (first item of multiple-image field)
+const image = Array.isArray(projet?.image) && projet.image.length > 0 ? projet.image[0] : null;
+// single file fields
+const image2 = projet?.image2 ?? '';
+const image3 = projet?.image3 ?? '';
+
+// encode fields for safe data-attributes (always produce valid JSON/string)
+const dataResume = typeof projet?.resume === 'string' ? encodeURIComponent(projet.resume) : '';
+const dataContexte = typeof projet?.contexte === 'string' ? encodeURIComponent(projet.contexte) : '';
+const dataRealisation = typeof projet?.realisation === 'string' ? encodeURIComponent(projet.realisation) : '';
+const dataImages = encodeURIComponent(JSON.stringify(projet?.image ?? []));
+const title = projet?.Titre ?? projet?.titre ?? '';
+---
+<button>
+  <div class="relative bg-[#4b2a29] p-4 rounded shadow-lg">
+    <div class="bg-[#2f3b36] h-40 w-full rounded-sm overflow-hidden flex items-center justify-center">
+      {image ? (
+        <Imagepb collection="projet" recordId={projet.id} filename={image} classImg="object-cover h-full w-full" />
+      ) : (
+        <div class="w-full h-full bg-neutral/10" />
+      )}
+    </div>
+
+    <div class="mt-3 text-center text-neutral-100">
+      <div class="text-lg font-semibold">{title}</div>
+      {projet?.resume ? <div class="text-xs text-neutral-300 mt-1" set:html={projet.resume}></div> : null}
+    </div>
+
+    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-warning rounded-full grid place-items-center shadow-md">+</div>
+  </div>
+</button>

@@ -1,0 +1,312 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageTransition from '../components/PageTransition.astro';
+import BookmarkNav from '../components/BookmarkNav.astro';
+import { Image } from 'astro:assets';
+import Moi from '../../public/image/moi.jpg';
+import Arrow from '../../public/icons/arrow.svg';
+---
+
+<Layout title="Mes projets">
+  <PageTransition>
+    <div class="min-h-screen flex items-center justify-center bg-cover bg-center bg-fixed relative overflow-hidden">
+      <!-- lumière douce sur le fond -->
+      <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#2e241b]/60 pointer-events-none"></div>
+      <!-- effet de grain -->
+      <div class="grain absolute inset-0 pointer-events-none opacity-30 mix-blend-overlay"></div>
+
+      <!-- Livre -->
+      <div class="relative w-[95vw] h-[100vh] max-w-[1800px] mx-auto rounded-3xl overflow-hidden shadow-2xl border-[4px] border-[#3B2C23]/50">
+
+        <!-- pages d’arrière-plan alignées -->
+        <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none">
+          <div class="absolute h-[94%] w-[98%] bg-base-200/90 rounded-2xl shadow-2xl -translate-x-4"></div>
+          <div class="absolute h-[94%] w-[98%] bg-base-200/95 rounded-2xl shadow-xl translate-x-4"></div>
+        </div>
+
+        <!-- livre principal -->
+        <div class="relative z-10 grid grid-cols-2 rounded-2xl shadow-2xl items-stretch h-full overflow-hidden border-[3px] border-secondary/50 bg-primary">
+            <!-- Page gauche -->
+            <section class="relative bg-primary/95 text-primary-content rounded-l-2xl p-12 shadow-inner h-full overflow-auto bg-[url('/image/paper-texture.webp')] bg-cover bg-blend-multiply">
+              <div class="max-w-[520px] mx-auto">
+                  <p class="text-xs text-warning/70 tracking-widest text-center mb-4">CHAPITRE III</p>
+                  <h1 class="font-cinzel text-5xl tracking-widest text-center mb-6">Mes projets</h1>
+                  <div class="mx-auto w-20 h-0.5 bg-gradient-to-r from-transparent via-warning to-transparent opacity-70 mb-8"></div>
+
+                
+                <div id="cards-carousel" class="relative p-2">
+
+                  <div id="cards-viewport" class="overflow-hidden">
+                    <div id="cards-track" class="flex transition-transform duration-500 will-change-transform"></div>
+                  </div>
+
+                  <!-- Place your existing .card-wrapper nodes here (they will be cloned into pages by JS) -->
+                  <div id="cards-source" class="sr-only" aria-hidden="true">
+                    <div class="grid grid-cols-2 gap-8">
+                      <div class="card-wrapper">
+                        <button
+                          type="button"
+                          class="project-card relative w-full text-left bg-[#4b2a29] rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1"
+                          data-id="local-sample"
+                          aria-label="Ouvrir projet"
+                          data-href="/projet-tavue"
+                        >
+                          <!-- image panel -->
+                          <div class="bg-[#2f3b36] h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]">
+                            <Image src={Moi} alt="Image du projet" class="object-cover h-full w-full" />
+                          </div>
+
+                          <!-- title / subtitle -->
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Titre du projet</div>
+                            <div class="text-xs text-neutral-300 mt-2">Résumé du projet</div>
+                          </div>
+
+                          <!-- round plus badge -->
+                          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-warning rounded-full grid place-items-center shadow-md text-sm font-bold text-[#4b2a29]">
+                            +
+                          </div>
+                        </button>
+                      </div>
+
+                      <div class="card-wrapper">
+                        <button
+                          type="button"
+                          class="project-card relative w-full text-left bg-[#4b2a29] rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1"
+                          data-id="local-sample-2"
+                          aria-label="Ouvrir projet"
+                        >
+                          <div class="bg-[#2f3b36] h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]">
+                            <div class="w-full h-full bg-neutral/10"></div>
+                          </div>
+
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Titre du projet</div>
+                            <div class="text-xs text-neutral-300 mt-2">Résumé du projet</div>
+                          </div>
+
+                          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-warning rounded-full grid place-items-center shadow-md text-sm font-bold text-[#4b2a29]">+</div>
+                        </button>
+                      </div>
+
+                      <div class="card-wrapper">
+                        <button
+                          type="button"
+                          class="project-card relative w-full text-left bg-[#4b2a29] rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1"
+                          data-id="local-sample-3"
+                          aria-label="Ouvrir projet"
+                        >
+                          <div class="bg-[#2f3b36] h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]">
+                            <div class="w-full h-full bg-neutral/10"></div>
+                          </div>
+
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Titre du projet</div>
+                            <div class="text-xs text-neutral-300 mt-2">Résumé du projet</div>
+                          </div>
+
+                          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-warning rounded-full grid place-items-center shadow-md text-sm font-bold text-[#4b2a29]">+</div>
+                        </button>
+                      </div>
+
+                      <div class="card-wrapper">
+                        <button
+                          type="button"
+                          class="project-card relative w-full text-left bg-[#4b2a29] rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1"
+                          data-id="local-sample-4"
+                          aria-label="Ouvrir projet"
+                        >
+                          <div class="bg-[#2f3b36] h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]">
+                            <div class="w-full h-full bg-neutral/10"></div>
+                          </div>
+
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Titre du projet</div>
+                            <div class="text-xs text-neutral-300 mt-2">Résumé du projet</div>
+                          </div>
+
+                          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-warning rounded-full grid place-items-center shadow-md text-sm font-bold text-[#4b2a29]">+</div>
+                        </button>
+                      </div>
+
+                      <!-- optional additional cards (they will be grouped by 4 in the carousel JS) -->
+                      <div class="card-wrapper">
+                        <button
+                          type="button"
+                          class="project-card relative w-full text-left bg-[#4b2a29] rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1"
+                          data-id="local-sample-5"
+                          aria-label="Ouvrir projet"
+                        >
+                          <div class="bg-[#2f3b36] h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]">
+                            <div class="w-full h-full bg-neutral/10"></div>
+                          </div>
+
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Titre du projet</div>
+                            <div class="text-xs text-neutral-300 mt-2">Résumé du projet</div>
+                          </div>
+
+                          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-warning rounded-full grid place-items-center shadow-md text-sm font-bold text-[#4b2a29]">+</div>
+                        </button>
+                      </div>
+
+                      <div class="card-wrapper">
+                        <button
+                          type="button"
+                          class="project-card relative w-full text-left bg-[#4b2a29] rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1"
+                          data-id="local-sample-6"
+                          aria-label="Ouvrir projet"
+                        >
+                          <div class="bg-[#2f3b36] h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]">
+                            <div class="w-full h-full bg-neutral/10"></div>
+                          </div>
+
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Titre du projet</div>
+                            <div class="text-xs text-neutral-300 mt-2">Résumé du projet</div>
+                          </div>
+
+                          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-warning rounded-full grid place-items-center shadow-md text-sm font-bold text-[#4b2a29]">+</div>
+                        </button>
+                      </div>
+
+                      <div class="card-wrapper">
+                        <button
+                          type="button"
+                          class="project-card relative w-full text-left bg-[#4b2a29] rounded-lg shadow-lg p-4 overflow-hidden transition-transform hover:-translate-y-1"
+                          data-id="local-sample-7"
+                          aria-label="Ouvrir projet"
+                        >
+                          <div class="bg-[#2f3b36] h-40 w-full rounded-sm overflow-hidden flex items-center justify-center border-b-2 border-[#8b513a]">
+                            <div class="w-full h-full bg-neutral/10"></div>
+                          </div>
+
+                          <div class="mt-4 text-center text-neutral-100">
+                            <div class="text-lg font-semibold leading-tight">Titre du projet</div>
+                            <div class="text-xs text-neutral-300 mt-2">Résumé du projet</div>
+                          </div>
+
+                          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-warning rounded-full grid place-items-center shadow-md text-sm font-bold text-[#4b2a29]">+</div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-center mt-4">
+                    <div class="flex gap-50">
+
+                      <button id="cards-prev" class="p-2 rounded-md bg-base-200/90 hover:bg-base-200" aria-label="Précédent">
+                        <Arrow />
+                      </button>
+
+                      <button id="cards-next" class="p-2 rounded-md bg-base-200/90 hover:bg-base-200" aria-label="Suivant">
+                        <Arrow style="transform: scaleX(-1); transform-origin: center;" />
+                      </button>
+                      
+                    </div>
+                  </div>
+                </div> 
+              </div>
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center">
+                <p>— IV —</p>
+                <p>@ 2025 Noëlie Ahuir</p>
+              </div>
+              <a href="/about"
+                   class="absolute bottom-6 p-10 left-6 inline-flex items-center gap-3 bg-secondary text-white px-4 py-2 rounded-md font-cinzel text-sm tracking-widest shadow-md transition-transform duration-300 hover:bg-accent hover:-translate-y-1 pointer-events-auto">
+                  <span class="text-lg">←</span> PAGE précédente
+              </a>
+            </section>  
+            <!-- Page droite -->
+            <section class="relative bg-primary/95 text-primary-content rounded-r-2xl p-12 shadow-inner h-full overflow-auto bg-[url('/image/paper-texture.webp')] bg-cover bg-blend-multiply">
+                <div class="h-full flex items-center justify-center">
+                  <article class="text-center max-w-[640px] px-6">
+                    <h4 class="text-lg text-secondary leading-relaxed">
+                      Veuillez cliquer sur un projet pour voir plus de détails à son sujet.
+                    </h4>
+                  </article>
+                </div>
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-neutral/70 text-center">
+                  <p>IV</p>
+                  <a href="">Mention Légales</a>
+                </div>
+
+                <!-- bouton suivant bottom-right -->
+                <a href="/projet"
+                    class="absolute bottom-6 right-6 inline-flex items-center gap-3 bg-secondary text-white px-4 py-2 rounded-md font-cinzel text-sm tracking-widest shadow-md transition-transform duration-300 hover:bg-accent hover:-translate-y-1 pointer-events-auto">
+                    PAGE SUIVANTE <span class="text-lg">→</span>
+                </a>
+            </section>
+        </div>
+      </div>
+    </div>
+    <BookmarkNav currentPage="projet" />
+    <script type="module">
+      (function () {
+        const source = document.getElementById('cards-source');
+        const track = document.getElementById('cards-track');
+        const prev = document.getElementById('cards-prev');
+        const next = document.getElementById('cards-next');
+        const viewport = document.getElementById('cards-viewport');
+        if (!track || !viewport) return;
+
+        // collect wrappers present in DOM (either inside #cards-source or elsewhere)
+        let wrappers = [];
+        if (source) wrappers = Array.from(source.querySelectorAll('.card-wrapper'));
+        if (!wrappers.length) wrappers = Array.from(document.querySelectorAll('.card-wrapper'));
+
+        const PER_PAGE = 4;
+        const pages = Math.max(1, Math.ceil(wrappers.length / PER_PAGE));
+        let current = 0;
+
+        // Build pages (each page = grid 2x2)
+        track.innerHTML = '';
+        for (let p = 0; p < pages; p++) {
+          const page = document.createElement('div');
+          page.className = 'w-full flex-shrink-0';
+          page.style.width = '100%';
+          const grid = document.createElement('div');
+          grid.className = 'grid grid-cols-2 gap-8';
+          for (let i = 0; i < PER_PAGE; i++) {
+            const idx = p * PER_PAGE + i;
+            if (idx >= wrappers.length) break;
+            grid.appendChild(wrappers[idx].cloneNode(true));
+          }
+          page.appendChild(grid);
+          track.appendChild(page);
+        }
+
+        function update() {
+          const vw = viewport.clientWidth;
+          track.style.transform = `translateX(-${current * vw}px)`;
+          prev.disabled = current === 0;
+          next.disabled = current === pages - 1;
+        }
+
+        window.addEventListener('resize', () => {
+          // small debounce
+          clearTimeout(window._cardsResizeTimeout);
+          window._cardsResizeTimeout = setTimeout(update, 120);
+        });
+
+        prev.addEventListener('click', () => { if (current > 0) { current--; update(); } });
+        next.addEventListener('click', () => { if (current < pages - 1) { current++; update(); } });
+
+        // swipe support
+        let startX = null;
+        let moved = 0;
+        viewport.addEventListener('pointerdown', (e) => { startX = e.clientX; viewport.setPointerCapture(e.pointerId); moved = 0; });
+        viewport.addEventListener('pointermove', (e) => { if (startX === null) return; moved = e.clientX - startX; });
+        viewport.addEventListener('pointerup', () => {
+          if (startX !== null) {
+            if (moved < -50 && current < pages - 1) current++;
+            if (moved > 50 && current > 0) current--;
+          }
+          startX = null; moved = 0; update();
+        });
+
+        // init
+        update();
+      })();
+    </script>
+  </PageTransition>
+</Layout>
